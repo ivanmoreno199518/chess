@@ -1,18 +1,22 @@
 let counter = 0;
 let originImage, originId, originColour, originObject;
+const SQUARES_OF_THE_BOARD = "div>div>div, div:nth-child(2)>div";
+const SELECT_ORIGIN_SQUARE = "SELECT ORIGIN SQUARE";
+const SELECT_DESTINY_SQUARE = "SELECT DESTINY SQUARE";
+let state = SELECT_ORIGIN_SQUARE;
 
 $(document).ready(function(){
-    $("div>div>div, div:nth-child(2)>div").click(function(){
-        if (counter == 0 && isOccupied($(this))) {
+    $(SQUARES_OF_THE_BOARD).click(function(){
+        if (state == SELECT_ORIGIN_SQUARE && isOccupied($(this))) {
             saveOriginFeatures($(this));
             select($(this));
-            counter = 1;
-        } else if (counter == 1 && !isChessFromGarbage($(this))) {
+            state = SELECT_DESTINY_SQUARE;
+        } else if (state == SELECT_DESTINY_SQUARE && !isChessFromGarbage($(this))) {
             moveChessCard($(this));
-            counter = 0;
-        } else if (counter == 1 && isChessFromGarbage($(this)) && isTheSameCard($(this))) {
+            state = SELECT_ORIGIN_SQUARE;
+        } else if (state == SELECT_DESTINY_SQUARE && isChessFromGarbage($(this)) && isTheSameCard($(this))) {
             unselect($(this));
-            counter = 0;
+            state = SELECT_ORIGIN_SQUARE;
         }
     })
 });

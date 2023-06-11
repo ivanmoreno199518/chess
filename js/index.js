@@ -1,8 +1,8 @@
-let counter = 0;
 let originImage, originId, originColour, originObject;
 const SQUARES_OF_THE_BOARD = "div>div>div, div:nth-child(2)>div";
 const SELECT_ORIGIN_SQUARE = "SELECT ORIGIN SQUARE";
 const SELECT_DESTINY_SQUARE = "SELECT DESTINY SQUARE";
+const NUMBER_PIECES = 32;
 let state = SELECT_ORIGIN_SQUARE;
 
 $(document).ready(function(){
@@ -65,9 +65,9 @@ function unselect (card) {
 }
 
 function moveToGarbage(card) {
-    for (let i = 1; i < 32; i++) {
-        if ($("#pieza"+i).css("background-image") == "none") {
-            $("#pieza"+i).css("background-image",$(card).css('background-image'));
+    for (let id = 1; id < NUMBER_PIECES; id++) {
+        if ($("#pieza"+id).css("background-image") == "none") {
+            $("#pieza"+id).css("background-image",$(card).css('background-image'));
             break;
         }
     }

@@ -1,0 +1,134 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgb(52, 52, 52);
+    background-image: url("../img/fondo.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+/*Selecciona el tablero*/
+body > div:nth-child(1) {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    height: 640px;
+    width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+/*Selecciona cada fila del tablero*/
+body > div:nth-child(1) > div {
+display: flex;
+flex-wrap:wrap;
+flex-direction:row;
+}
+
+/*Selecciona cada celda del tablero*/
+body > div:nth-child(1) > div > div {
+    width: 80px;
+    height: 80px;
+}
+
+/*Selecciona cada celda del tablero al pasar el cursor*/
+body > div:nth-child(1) > div > div:hover {
+    cursor: pointer;
+}
+
+/*Se recorren por filas pares e impares y a su vez celdas pares e impares para configurar su color*/
+body > div:nth-child(1) > div:nth-child(odd) > div:nth-child(even){
+    background-color: black;
+}
+
+body > div:nth-child(1) > div:nth-child(odd) > div:nth-child(odd){
+    background-color: white;
+}
+
+body > div:nth-child(1) > div:nth-child(even) > div:nth-child(odd){
+    background-color: black;
+}
+
+body > div:nth-child(1) > div:nth-child(even) > div:nth-child(even){
+    background-color: white;
+}
+
+/*Se selecciona la capa que contendrá las piezas eliminadas*/
+body > div:nth-child(2){
+    width: 640px;
+    min-height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(81, 80, 80, 0.75);
+    border-radius: 5px;
+}
+
+/*Se selecciona cada celda que contendrá una pieza eliminada*/
+body > div:nth-child(2) > div {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#a1, #h1 {
+    background-image: url(../img/tb.gif);
+}
+
+#a8, #h8 {
+    background-image: url(../img/tn.gif);;
+}
+
+#b1, #g1 {
+    background-image: url(../img/cb.gif);;
+}
+
+#b8, #g8 {
+    background-image: url(../img/cn.gif);;
+}
+
+#c1, #f1 {
+    background-image: url(../img/ab.gif);;
+}
+
+#c8, #f8 {
+    background-image: url(../img/an.gif);;
+}
+
+#d1 {
+    background-image: url(../img/db.gif);;
+}
+
+#d8 {
+    background-image: url(../img/dn.gif);;
+}   
+
+#e1 {
+    background-image: url(../img/rb.gif);;
+}
+
+#e8 {
+    background-image: url(../img/rn.gif);;
+}
+
+.peonesn > div {
+    background-image: url(../img/pn.gif);;
+}
+
+.peonesb > div {
+    background-image: url(../img/pb.gif);;
+}
+
+
+
+
